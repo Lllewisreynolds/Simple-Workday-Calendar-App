@@ -1,3 +1,78 @@
+// Displaying current date in Header element of HTML using Day.js library.
+// Global scope variables declared using jQuery library throughout as opposed to vanilla javaScript to demonstrate application of third-party API tools.
+
+var currentDayEl = $("#currentDay");
+var currentDay = dayjs().format('dddd, MMMM D');
+currentDayEl.text(currentDay);
+
+// For loop and If Conditionals used in conjunction with Day.js and jQuery .addClass method to update work calendar dynamically as hours elapse.
+
+var currentHour = dayjs().hour();
+
+for (var i = 9; i<18; i++){
+  var timeBlockEl = $("#hour-" + i);
+  if (currentHour > i) {
+    timeBlockEl.addClass('past');
+  }
+  if (currentHour === i) {
+    timeBlockEl.addClass('present');
+  }
+  if (currentHour < i) {
+    timeBlockEl.addClass('future');
+  }
+}
+
+// saving local next
+
+
+
+
+
+// When in doubt, console.log it out!
+// Granularising it! Logical/coding mindset.
+// Create individual functions that do each of the required tasks to make the HTML interactive
+
+// Topics to cover in tutor session and how they are directly applicable to this challenge:
+
+// LocalStorage
+
+// function getUserInputFromStorage(){
+//   var userInput = localStorage.getItem('userInput');
+//   if(userInput){
+//     // Need to parse as it will be an array of objects
+//     userInput = JSON.parse(userInput);
+//   }
+//   else {
+//     userInput = [];
+//   }
+//   return userInput;
+// }
+
+// function saveUserInputToStorage(userInput){
+//   localStorage.setItem('userInput', JSON.stringify(userInput));
+//   return;
+// }
+
+// Day.JS
+
+// var currentTime = dayjs().format();
+
+// For Loops
+// If Conditions
+// Data Attributes
+// setIntervals
+
+
+
+
+
+
+
+
+
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
