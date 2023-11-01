@@ -22,11 +22,20 @@ for (var i = 9; i<18; i++){
   }
 }
 
+
+// jQuery event listener method used to add a handler function upon clicking any of the button elements
+/
+$('.saveBtn').on('click', function () {
+  // 'this' within this context allows the object on which the currently executing method has been invoked to refer back to itself as it was already returned and defined in the inital DOM query (the button elements with the class '.saveBtn').
+  // I am getting the value of the input field/text area element with the class 'description' through the sibling selector (targetable through its relationship as a sibling node to the button elements in the DOM hierarchy). 
+  var textInput = $(this).siblings('.description').val();
+  // get the id attribute of the parent div element
+  var hourContainers = $(this).parent()
+
+  
+
+
 // saving local next
-
-
-
-
 
 // When in doubt, console.log it out!
 // Granularising it! Logical/coding mindset.
@@ -60,6 +69,12 @@ for (var i = 9; i<18; i++){
 // For Loops
 // If Conditions
 // Data Attributes
+
+// We will want to know which save button corresponds to which hour - assign a custom data attribute:
+// <button class="btn saveBtn col-2 col-md-1" aria-label="save" data-save=>
+//           <i class="fas fa-save" aria-hidden="true"></i>
+//         </button>
+
 // setIntervals
 
 
