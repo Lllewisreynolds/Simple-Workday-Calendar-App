@@ -1,11 +1,21 @@
+// All code that interacts with the DOM has been wrapped in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements
+// in the HTML. Once this has loaded and parsed, the DOM should be ready to initialise the plugin libraries provided from third-party APIs like jQuery and DayJS.
+
+// $(document).ready(function () {
+
 // Displaying current date in Header element of HTML using Day.js library.
-// Global scope variables declared using jQuery library throughout as opposed to vanilla javaScript to demonstrate application of third-party API tools.
+// jQuery library used throughout wherever possible as opposed to vanilla javaScript to demonstrate application of third-party API tools.
+
+// function printDate() {
 
 var currentDayEl = $("#currentDay");
 var currentDay = dayjs().format('dddd, MMMM D');
 currentDayEl.text(currentDay);
+// }
 
 // For loop and If Conditionals used in conjunction with Day.js and jQuery .addClass method to update work calendar dynamically as hours elapse.
+
+// function timeDependantTracker() {
 
 var currentHour = dayjs().hour();
 
@@ -21,6 +31,7 @@ for (var i = 9; i<18; i++){
     timeBlockEl.addClass('future');
   }
 }
+// }
 
 
 // jQuery event listener method used to add a handler function upon clicking any of the button elements
@@ -35,10 +46,30 @@ $('.saveBtn').on('click', function () {
   localStorage.setItem(hourContainers, textInput);
 })
 
-// For a path moving forward, look into how to access those values with
-// localstorage.getItem()
-// Probably console log it and trace the hardcoded values first as a brute force approach, and then consider how to refactor it in a loop.
+// Adding code to get any user input that was saved in localStorage by accessing those values with the localStorage.getItem() method and setting the values of the corresponding textarea elements through iteration.
 
+// Example if we were retrieving one individual hour:
+
+$('#hour9 .description').val(localStorage.getItem('hour9'));
+console.log(localStorage.getItem('hour-9'))
+
+// function setTextAreaValue() {
+
+  for (var i = 9; i<18; i++) {
+    // Template literal used to combine string with my embedded expression instead of concatenation (as in, '$("#" + i)') to aid readability.
+    // For clarification: the first $ is a jQuery , the second $ with braces delineates the template literal and is a native javascript feature.
+    $(`#${i}`).val(localStorage.getItem(i));
+  }
+  // }
+
+  // How do I get this data to persist through reload?
+  
+
+// Access those values with
+// localstorage.getItem()
+// Probably console log it and trace the hardcoded values first as a brute force approach, and then consider how to refactor it in a loop hopefully?
+// Lean on console logging or printing a hard coded solution before the iteration.
+// ensure my dependencies are returning the expected data, and go from there
 
 // When in doubt, console.log it out!
 // Granularising it! Logical/coding mindset.
@@ -46,14 +77,26 @@ $('.saveBtn').on('click', function () {
 
 // LocalStorage
 
-// Data Attributes
-
-// We will want to know which save button corresponds to which hour - assign a custom data attribute?:
-// <button class="btn saveBtn col-2 col-md-1" aria-label="save" data-save=>
-//           <i class="fas fa-save" aria-hidden="true"></i>
-//         </button>
 
 // setIntervals
+
+// Why would we need setInterval? 
+// To execute the code asynchronously
+// Perhaps use localStorage.clear(); method to clear calendar after a certain amount of time has elapsed.
+
+
+// function startInterval() {
+//   var intervalId = setInterval(callback function placeholder, interval in milliseconds)
+// }
+
+// var dayInMilliseconds = 1000 * 60 * 60 * 24;
+// setInterval(function() { 
+//   localStorage.clear();
+//  },dayInMilliseconds);
+
+//  Doesn't work! We need time to midnight, local to user! Not simply 24 hours!
+
+
 
 
 
@@ -70,11 +113,7 @@ $('.saveBtn').on('click', function () {
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-
-  
-  
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page
+// timeDependantTracker();
+// printDate();
+// setTextAreValue();
+// }

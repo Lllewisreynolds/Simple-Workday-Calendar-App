@@ -14,11 +14,9 @@ This has been achieved through the deployment of the following coding practices,
 
 4.  Within this same handler function, I then used two variables storing the results of the above methods as key value pairs (each hour's parent div is the key, the user's input as the value) to local storage each time the handler function is executed.
 
-5. 
+5. I then made use of the localStorage.getItem() method to once again get access to those values saved in localStorage in order to set the values of the corresponding textarea elements through iteration/a further for loop.
 
 ## Screenshot of Finalised Application - Usage
-
-![img](./) - to be added once challenge complete.
 
 ![img](./) - to be added once challenge complete.
 
