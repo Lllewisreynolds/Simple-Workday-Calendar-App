@@ -1,7 +1,7 @@
 // All code that interacts with the DOM has been wrapped in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements
 // in the HTML. Once this has loaded and parsed, the DOM should be ready to initialise the plugin libraries provided from third-party APIs like jQuery and DayJS.
 
-// $(document).ready(function () {
+$(document).ready(function () {
 
 // Displaying current date in Header element of HTML using Day.js library.
 // jQuery library used throughout wherever possible as opposed to vanilla javaScript to demonstrate application of third-party API tools.
@@ -44,6 +44,10 @@ $('.saveBtn').on('click', function () {
   var hourContainers = $(this).parent().prop('id');
   // Saving the above two variables as key value pairs (parent div is the key, the user's input is the value) to local storage each time the handler function is executed).
   localStorage.setItem(hourContainers, textInput);
+  // Variable declared to grab newly-created empty span element in HTML with the below id. Span is populated with the below when event handler is triggered to inform user that their input has been saved to the local storage.
+  var storageConf = $("#storage-conf");
+  storageConf.html("Appointment Added with <code>localStorage</code> ✅");
+  storageConf.attr("style", "text-align: center; font-size: 16px; font-weight: 900");
 })
 
 // Adding code to get any user input that was saved in localStorage by accessing those values with the localStorage.getItem() method and setting the values of the corresponding textarea elements through iteration.
@@ -116,4 +120,4 @@ console.log(localStorage.getItem('hour-9'))
 // timeDependantTracker();
 // printDate();
 // setTextAreValue();
-// }
+});

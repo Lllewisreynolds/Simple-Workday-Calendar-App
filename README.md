@@ -12,7 +12,7 @@ This has been achieved through the deployment of the following coding practices,
 
 3. The jQuery event listener method has been used to add a handler function when clicking any of the button elements present in the HTML. Through jQuery's sibling() method, I am able to traverse the DOM tree in order to access the user's input in the texarea elements that sit alongside the button elements. I then retrieved the id attribute of the parent div element through dom traversal once again with the parent() method, and then drilled down further with jQuery's prop() method to access the unique id assigned to each of the 9 hour container divs.
 
-4.  Within this same handler function, I then used two variables storing the results of the above methods as key value pairs (each hour's parent div is the key, the user's input as the value) to local storage each time the handler function is executed.
+4.  Within this same handler function, I then used two variables storing the results of the above methods as key value pairs (each hour's parent div is the key, the user's input as the value) to local storage each time the handler function is executed. An empty span element has also been created in my HTML. Finally, this element is populated with text informing the user that their inputted text has been saved to local storage.
 
 5. I then made use of the localStorage.getItem() method to once again get access to those values saved in localStorage in order to set the values of the corresponding textarea elements through iteration/a further for loop.
 
