@@ -14,10 +14,10 @@ This has been achieved through the deployment of the following coding practices,
 
 4.  Within this same handler function, I then used two variables storing the results of the above methods as key value pairs (each hour's parent div is the key, the user's input as the value) to local storage each time the handler function is executed. An empty span element has also been created in my HTML. Finally, this element is populated with text informing the user that their inputted text has been saved to local storage.
 
-5. I then made use of the localStorage.getItem() method to once again get access to those values saved in localStorage in order to set the values of the corresponding textarea elements through iteration/a further for loop.
+5. I then made use of the localStorage.getItem() method to once again get access to those values saved in localStorage in order to set the values of the corresponding textarea elements through iteration/a further for loop. I made use of a template literal here to combine my string with the counter variable as an integrated expression to set these textarea elements based on their parent containers' individual 'hour' id attributes.
 
 ## Screenshot of Finalised Application - Usage
 
-![img](./) - to be added once challenge complete.
+![img](./Assets/Work%20Day%20Scheduler.gif)
 
 ## Link to Deployed Application

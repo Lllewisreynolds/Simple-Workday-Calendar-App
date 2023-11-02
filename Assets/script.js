@@ -6,16 +6,11 @@ $(document).ready(function () {
 // Displaying current date in Header element of HTML using Day.js library.
 // jQuery library used throughout wherever possible as opposed to vanilla javaScript to demonstrate application of third-party API tools.
 
-// function printDate() {
-
 var currentDayEl = $("#currentDay");
 var currentDay = dayjs().format('dddd, MMMM D');
 currentDayEl.text(currentDay);
-// }
 
 // For loop and If Conditionals used in conjunction with Day.js and jQuery .addClass method to update work calendar dynamically as hours elapse.
-
-// function timeDependantTracker() {
 
 var currentHour = dayjs().hour();
 
@@ -31,7 +26,6 @@ for (var i = 9; i<18; i++){
     timeBlockEl.addClass('future');
   }
 }
-// }
 
 
 // jQuery event listener method used to add a handler function upon clicking any of the button elements
@@ -52,72 +46,11 @@ $('.saveBtn').on('click', function () {
 
 // Adding code to get any user input that was saved in localStorage by accessing those values with the localStorage.getItem() method and setting the values of the corresponding textarea elements through iteration.
 
-// Example if we were retrieving one individual hour:
-
-$('#hour9 .description').val(localStorage.getItem('hour9'));
-console.log(localStorage.getItem('hour-9'))
-
-// function setTextAreaValue() {
-
   for (var i = 9; i<18; i++) {
     // Template literal used to combine string with my embedded expression instead of concatenation (as in, '$("#" + i)') to aid readability.
     // For clarification: the first $ is a jQuery , the second $ with braces delineates the template literal and is a native javascript feature.
-    $(`#${i}`).val(localStorage.getItem(i));
+    // This populates the values of the corresponding textarea elements based on their parent container's individual 'hour' id.
+    $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`));
   }
-  // }
 
-  // How do I get this data to persist through reload?
-  
-
-// Access those values with
-// localstorage.getItem()
-// Probably console log it and trace the hardcoded values first as a brute force approach, and then consider how to refactor it in a loop hopefully?
-// Lean on console logging or printing a hard coded solution before the iteration.
-// ensure my dependencies are returning the expected data, and go from there
-
-// When in doubt, console.log it out!
-// Granularising it! Logical/coding mindset.
-// Create individual functions that do each of the required tasks to make the HTML interactive
-
-// LocalStorage
-
-
-// setIntervals
-
-// Why would we need setInterval? 
-// To execute the code asynchronously
-// Perhaps use localStorage.clear(); method to clear calendar after a certain amount of time has elapsed.
-
-
-// function startInterval() {
-//   var intervalId = setInterval(callback function placeholder, interval in milliseconds)
-// }
-
-// var dayInMilliseconds = 1000 * 60 * 60 * 24;
-// setInterval(function() { 
-//   localStorage.clear();
-//  },dayInMilliseconds);
-
-//  Doesn't work! We need time to midnight, local to user! Not simply 24 hours!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-// timeDependantTracker();
-// printDate();
-// setTextAreValue();
 });
